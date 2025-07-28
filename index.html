@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storage</title>
+</head>
+
+<body>
+    <script type="module">
+        import { Storage } from "./dist/index.js"
+        const storage = new Storage()
+        // 测试过期
+        // storage.set('a', 123, Date.now() + 5000)
+
+        // 测试删除
+        // setTimeout(() => {
+        //     storage.remove('a')
+        // }, 10000)
+
+        // 测试清空
+        // setTimeout(() => {
+        //     storage.clear()
+        // }, 10000)
+
+        // 测试永久
+        storage.set('a', 999)
+
+        // 日志
+        setInterval(() => {
+            const a = storage.get('a')
+            console.log(a)
+        }, 500)
+    </script>
+</body>
+
+</html>
